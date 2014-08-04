@@ -724,6 +724,7 @@ namespace LKCamelot.model
             set
             {
                 m_Loc = value;
+							
                 var CheckStep = script.map.Portal.Portals.Where(xe => xe.Map == Map
                     && (xe.Locs[0].X == X && xe.Locs[0].Y == Y)).FirstOrDefault();
 

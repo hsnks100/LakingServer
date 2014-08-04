@@ -32,7 +32,7 @@ namespace LKCamelot.script.item
         public virtual string Name { get { return ""; } }
         public virtual string FlavorText { get { return null; } }
         public virtual string DescText { get { return null; } }
-        public virtual ulong BuyPrice { get { return 1000000; } } // 플레이어가 사는 가격
+        public virtual ulong BuyPrice { get { return 1000000; } } // 플레이어가 사는 가격 fdfdf
         public virtual int SellPrice { get { return 0; } } // 
         //   public virtual string ParsedStats { get { return ""; } }
         public virtual int StrReq { get { return 0; } }

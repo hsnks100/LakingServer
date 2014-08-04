@@ -25,7 +25,7 @@ namespace LKCamelot.script.npc
         }
     }
 
-    public class GUMP
+    public class GUMP // 게임 메뉴를 띄우기 위한 클래스.
     {
         public int ID;
         public ushort Titlec;

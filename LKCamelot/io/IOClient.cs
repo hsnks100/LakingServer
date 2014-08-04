@@ -197,7 +197,8 @@ namespace LKCamelot.io
                 SendPacket(new UpdateChatBox(0x25, 0x65, 5, (short)text2.Count(), text2).Compile());
             }
 
-            World.SendToAll(new QueDele(player.Map, new ChangeObjectSpritePlayer(player).Compile()));
+            World.SendToAll(new QueDele(player.Map, new ChangeObjectSpritePlayer(player).Compile())); // 사용자 캐릭터 정보 모두에게 날림.
+
         }
 
         public void HandleGo(string goloc)
@@ -447,7 +448,7 @@ namespace LKCamelot.io
                              sprite++;
                          }
                          break;*/
-                case 0x3A: //find
+                case 0x3A: //find 물건 찾기.
                     if (player.Map == "Loen")
                     {
                         var slot = data[1] + 40 + (12 * player.BankTab);
@@ -464,14 +465,14 @@ namespace LKCamelot.io
                         }
                     }
                     break;
-                case 0x36: //Entrust
+                case 0x36: //Entrust 보관하기.
                     if (player.Map == "Loen")
                     {
                         var itemtoentrust = World.NewItems.Where(xe => xe.Value.ParSer == player.Serial && xe.Value.InvSlot == data[1]).FirstOrDefault();
                         if (itemtoentrust.Value != null)
                         {
                             SendPacket(new DeleteItemSlot((byte)itemtoentrust.Value.InvSlot).Compile());
-                            itemtoentrust.Value.InvSlot = player.FreeBankSlot;
+                            itemtoentrust.Value.InvSlot = player.FreeBankSlot; // 선택한 인벤을 빈칸으로 만듬.
                             SendPacket(new AddItemToEntrust(itemtoentrust.Value).Compile());
                         }
                     }
@@ -493,14 +494,14 @@ namespace LKCamelot.io
                 //  3D-00-00-01-00-00-00-0A-00-09-00
                 case 0x3D:
                 case 0x19:
-                case 0x18:
+                case 0x18: // 마법 캐스트 관련.
                     if (LKCamelot.Server.tickcount.ElapsedMilliseconds - player.CastSpeed > LastCast)
                     {
                         LastCast = LKCamelot.Server.tickcount.ElapsedMilliseconds;
                         p = new PacketReader(data, data.Count(), true);
                         int spellslot = p.ReadInt16();
-                        if (player.MagicLearned.Count() < spellslot)
-                            return;
+												//if (player.MagicLearned.Count() < spellslot)
+												//		return;
                         int castonid = p.ReadInt32();
                         short castx = p.ReadInt16();
                         short casty = p.ReadInt16();
@@ -512,7 +513,7 @@ namespace LKCamelot.io
                     }
                     break;
                 //Attack
-                case 0x17:
+                case 0x17: // 공격하는 쪽.
                     if (LKCamelot.Server.tickcount.ElapsedMilliseconds - player.AttackSpeed > LastAttack)
                     {
                         LastAttack = LKCamelot.Server.tickcount.ElapsedMilliseconds;

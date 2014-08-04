@@ -159,7 +159,7 @@ namespace LKCamelot.script.npc
         {
             get
             {
-                return new GUMP((int)LKCamelot.library.NPCs.Arnold, 0xff85, 0x03ff, 0x70, "Menu", templ);
+                return new GUMP((int)LKCamelot.library.NPCs.Arnold, 0xff85, 0x03ff, 0x70, "Menu", templ); // 게임속 메뉴
             }
         }
     }

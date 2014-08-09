@@ -200,6 +200,19 @@ namespace LKCamelot.model
         }
     }
 
+		public sealed class ExecuteMagic : Packet
+		{
+        public ExecuteMagic(Serial ser)
+            : base(0x28)
+        {
+					m_Stream.Write((int)ser);
+						//m_Stream.Write((short)face);
+						//m_Stream.Write(x);
+						//m_Stream.Write(y);
+
+
+        }
+		}
     public sealed class MoveSpriteTele : Packet
     {
         public MoveSpriteTele(Serial ser, short face, short x, short y)
@@ -208,8 +221,10 @@ namespace LKCamelot.model
             m_Stream.Write((int)ser);
             m_Stream.Write((short)face);
             m_Stream.Write(x);
-            m_Stream.Write(y);
-        }
+            m_Stream.Write(y); 
+				}
+
+
     }
 
     public sealed class SetLevelGold : Packet

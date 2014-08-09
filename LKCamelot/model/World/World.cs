@@ -210,7 +210,7 @@ namespace LKCamelot.model
                 if (play.Value == null || play.Value.loggedIn == false)
                     continue;
 
-                if ((play.Value.client.keepalive + 15000) < Server.tickcount.ElapsedMilliseconds)
+                if ((play.Value.client.keepalive + 15000) < Server.tickcount.ElapsedMilliseconds && false) // 접속 안끊기게 해놈.
                     w_server.Disconnect(play.Value.client.connection);
 
                 if (play.Value.client.connection == null || play.Value.client.connection.Socket == null)

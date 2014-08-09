@@ -43,7 +43,7 @@ namespace LKCamelot.script.npc
 							case 8:
 								return new script.item.TeagueShieldBook(ser);
 							case 9:
-								return new script.item.MagicShieldBook(ser);
+								return new script.item.ComebackBook(ser);
 							case 10:
 								return new script.item.TeleportBook(ser);
 							case 11:
@@ -79,7 +79,7 @@ namespace LKCamelot.script.npc
 							case 8:
 								return new script.item.TeagueShieldBook();
 							case 9:
-								return new script.item.MagicShieldBook();
+								return new script.item.ComebackBook();
 							case 10:
 								return new script.item.TeleportBook();
 							case 11:

@@ -19,7 +19,7 @@ namespace LKCamelot.script.item
     public class Item
     {
         public Serial m_Serial;
-        public int m_ItemID;
+        public int m_ItemID; // 아이템의 보이는 이미지를 결정한다. 
         public int m_InvSlot = -1;
         public Player m_Parent;
         public string m_Map;

@@ -493,7 +493,31 @@ namespace LKCamelot.script.item
         {
         }
     }
+		public class ComebackBook : BaseSpellbook
+		{
+			public override string Name { get { return "BOOK OF COMEBACK"; } }
+			public override int MenReq { get { return 38; } }
+			public override int MenReqPl { get { return 10; } }
+			public override int DexReq { get { return 0; } }
+			public override int DexReqPl { get { return 0; } }
+			public override int LevelReq { get { return 0; } }
 
+			public override ulong BuyPrice { get { return 40000; } }
+			public override int SellPrice { get { return 15000; } }
+
+			public override spells.Spell SpellTaught { get { return new spells.ComeBack(); } }
+
+			public ComebackBook()
+				: base(3)
+			{
+			}
+
+			public ComebackBook(Serial serial)
+				: base(serial)
+			{
+				m_ItemID = 3;
+			}
+		}
     public class TraceBook : BaseSpellbook
     {
         public override string Name { get { return "BOOK OF TRACE"; } }

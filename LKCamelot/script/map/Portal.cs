@@ -338,3 +338,5 @@ namespace LKCamelot.script.map
         };
     }
 }
+
+// 컴백 구현을 위해선 Map 이랑 Loc 을 저장해야됨. 

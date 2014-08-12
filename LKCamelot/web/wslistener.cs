@@ -132,7 +132,7 @@ namespace LKCamelot
             });
             KeepAliveThread.Start();
 
-            Console.WriteLine(string.Format("ControlPanelListener is listening on {0}:{1}...", "127.0.0.1", "8181"), ConsoleColor.Green);
+            Console.WriteLine(string.Format("ControlPanelListener is listening on {0}:{1}...", "0.0.0.0", "8181"), ConsoleColor.Green);
         }
     }
 }

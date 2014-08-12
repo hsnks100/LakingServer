@@ -74,7 +74,11 @@ namespace LKCamelot.script.spells
             CheckLevelUp(player);
             return false;
         }
+				public virtual bool KSCast(int header, Player player, int target = 0, short castx = 0, short casty = 0)
+				{
 
+					return true;
+				}
         public virtual void CheckLevelUp(Player player)
         {
             if (Util.RandomMinMax(0, (50 * SLevel2)) == 5)

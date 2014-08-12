@@ -36,10 +36,10 @@ namespace LKCamelot.library
 
     public enum MagicType
     {
-        Coord = 2, //1B-01-00-1B-00-13-00
-        Target = 3, //18-01-00-00-00-00-00-1B-00-1E-00
-        Casted = 4, //19-01-00 
-        Target2 = 5 //3D-01-00-00-00-00-00-1A-00-13-00
+        Coord = 2, //1B-01-00-1B-00-13-00 // 쓰이지 않는 듯??
+        Target = 3, //18-01-00-00-00-00-00-1B-00-1E-00 // 범위 마법
+        Casted = 4, //19-01-00  자가 마법
+        Target2 = 5 //3D-01-00-00-00-00-00-1A-00-13-00 목표물 타겟 마법
     }
 
     public enum NPCs

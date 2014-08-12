@@ -1,4 +1,7 @@
-﻿namespace LKCamelot.script.spells
+﻿using LKCamelot.model;
+using System.Linq;
+using System;
+namespace LKCamelot.script.spells
 {
     public class Teleport : Spell
     {
@@ -32,7 +35,48 @@
                 return;
             }
         }
+				public override bool KSCast(int header, model.Player player, int target = 0, short castx = 0, short casty = 0)
+				{
+					var teleportdist = ((Level / 2) * 2);
+					if (teleportdist <= 3) teleportdist = 4;
+					if (teleportdist > 12) teleportdist = 12;
+					if (World.Dist2d(castx, casty, player.X, player.Y) <= teleportdist
+							&& player.MPCur > RealManaCost(player))
+					{
+						var nmap = LKCamelot.model.Map.FullMaps.Where(xe => xe.Key == player.Map).FirstOrDefault().Value;
+						
+						TiledMap curmap = null;
+						try
+						{
+							curmap = LKCamelot.model.Map.loadedmaps[nmap];
+						}
+						catch
+						{
+							Console.WriteLine(string.Format("Failed to nmap at {0}", nmap));
+						}
+						LKCamelot.model.MyPathNode randomtile;
+						try
+						{
+							randomtile = curmap.tiles[castx, casty];
+						}
+						catch
+						{
+							return true;
+						}
+						if (randomtile.IsWall)
+						{
+							return true;
+						}
+						player.MPCur -= RealManaCost(player);
+						CheckLevelUp(player);
 
+						player.Loc = new Point2D(castx, casty);
+						World.SendToAll(new QueDele(player.Map, new MoveSpriteTele(player.Serial, player.Face, player.X, player.Y).Compile()));
+						World.SendToAll(new QueDele(player.Map, new ExecuteMagic(player.Serial).Compile()));
+						return true;
+					}
+					return base.KSCast(header, player, target, castx, casty);
+				}
         public override SpellSequence Seq
         {
             get

@@ -996,7 +996,7 @@ namespace LKCamelot.script.item
         public override int MenReqPl { get { return 0; } }
         public override int DexReq { get { return 260; } }
         public override int DexReqPl { get { return 12; } }
-        public override int LevelReq { get { return 50; } }
+        public override int LevelReq { get { return 0; } }
         public override int LevelReqPl { get { return 5; } }
         public override Class ClassReq { get { return Class.Swordsman; } }
 

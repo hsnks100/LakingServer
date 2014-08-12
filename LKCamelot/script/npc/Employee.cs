@@ -31,13 +31,13 @@ namespace LKCamelot.script.npc
 							case 2:
 								return new script.item.ElectronicBallBook(ser);
 							case 3:
-								return new script.item.FireBallBook(ser);
+								return new script.item.DemonDeathBook(ser);
 							case 4:
 								return new script.item.MagicArmorBook(ser);
 							case 5:
 								return new script.item.RainbowArmorBook(ser);
 							case 6:
-								return new script.item.GuardianSwordBook(ser);
+								return new script.item.UltraBigBangBook(ser);
 							case 7:
 								return new script.item.FireProtectorBook(ser);
 							case 8:
@@ -67,13 +67,13 @@ namespace LKCamelot.script.npc
 							case 2:
 								return new script.item.ElectronicBallBook();
 							case 3:
-								return new script.item.FireBallBook();
+								return new script.item.DemonDeathBook();
 							case 4:
 								return new script.item.MagicArmorBook();
 							case 5:
 								return new script.item.RainbowArmorBook();
 							case 6:
-								return new script.item.GuardianSwordBook();
+								return new script.item.UltraBigBangBook();
 							case 7:
 								return new script.item.FireProtectorBook();
 							case 8:

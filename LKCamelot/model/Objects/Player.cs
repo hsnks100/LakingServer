@@ -905,12 +905,12 @@ namespace LKCamelot.model
                 World.SendToAll(new QueDele(m_Map, new SetObjectEffectsPlayer(this).Compile()));
             }
         }
-
         public byte[] BuffArray
         {
             get
             {
                 byte[] buffs = new byte[4] { 0, 0, 0, 0 };
+								
                 int itrx = 0;
                 foreach (var buff in m_Buffs)
                 {
@@ -975,6 +975,7 @@ namespace LKCamelot.model
                 m_Buffs.Add(buff);
                 World.SendToAll(new QueDele(Map, new LKCamelot.model.SetObjectEffectsPlayer(this).Compile()));
                 client.SendPacket(new LKCamelot.model.UpdateCharStats(this).Compile());
+								World.SendToAll(new QueDele(Map, new ExecuteMagic(Serial).Compile()));
             }
         }
 

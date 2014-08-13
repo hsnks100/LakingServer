@@ -177,7 +177,7 @@ namespace LKCamelot
 
             shutdownClientHandler = false;
 
-            var bindIP = "127.0.0.1";
+						var bindIP = "180.182.221.108";
             int Port = 43333;
 
             if (!this.Listen(bindIP, Port)) return;
